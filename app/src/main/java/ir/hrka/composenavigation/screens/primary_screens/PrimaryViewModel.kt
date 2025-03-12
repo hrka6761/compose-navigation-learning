@@ -1,0 +1,8 @@
+package ir.hrka.composenavigation.screens.primary_screens
+
+import dagger.hilt.android.lifecycle.HiltViewModel
+import ir.hrka.composenavigation.core.BaseViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class PrimaryViewModel @Inject constructor() : BaseViewModel()
