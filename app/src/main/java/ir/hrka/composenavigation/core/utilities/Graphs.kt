@@ -1,4 +1,4 @@
-package ir.hrka.composenavigation.screens
+package ir.hrka.composenavigation.core.utilities
 
 enum class Graphs(override val destination: String): Route {
 
