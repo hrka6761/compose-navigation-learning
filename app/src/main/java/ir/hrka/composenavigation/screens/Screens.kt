@@ -1,6 +1,6 @@
 package ir.hrka.composenavigation.screens
 
-enum class Screens(val destination: String) {
+enum class Screens(override val destination: String): Route {
 
     //Main screens
     Splash("splash_screen"),
