@@ -1,4 +1,4 @@
-package ir.hrka.composenavigation.ui.theme
+package ir.hrka.composenavigation
 
 object Constants {
 
