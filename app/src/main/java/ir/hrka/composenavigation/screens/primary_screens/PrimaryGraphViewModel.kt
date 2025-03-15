@@ -5,4 +5,4 @@ import ir.hrka.composenavigation.core.BaseViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class PrimaryViewModel @Inject constructor() : BaseViewModel()
+class PrimaryGraphViewModel @Inject constructor() : BaseViewModel()
