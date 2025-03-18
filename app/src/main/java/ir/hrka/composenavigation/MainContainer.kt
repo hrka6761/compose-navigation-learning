@@ -48,7 +48,7 @@ import ir.hrka.composenavigation.ui.theme.ComposeNavigationTheme
 fun AppContent(modifier: Modifier = Modifier) {
     ComposeNavigationTheme {
         val navController = rememberNavController()
-        val snackbarHostState = remember { SnackbarHostState() }
+        val snackBarHostState = remember { SnackbarHostState() }
 
         Scaffold(
             topBar = { TopBar() },
@@ -56,7 +56,7 @@ fun AppContent(modifier: Modifier = Modifier) {
             snackbarHost = {
                 SnackbarHost(
                     modifier = Modifier.fillMaxWidth(),
-                    hostState = snackbarHostState
+                    hostState = snackBarHostState
                 )
             }
         ) { innerPaddings ->
@@ -73,7 +73,12 @@ fun AppContent(modifier: Modifier = Modifier) {
                 ) {
                     composable(
                         route = Splash.destination
-                    ) { SplashScreen() }
+                    ) {
+                        SplashScreen(
+                            navController = navController,
+                            snackBarHostState = snackBarHostState
+                        )
+                    }
                     composable(
                         route = SignIn.destination
                     ) { SignInScreen() }
