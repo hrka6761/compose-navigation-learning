@@ -18,7 +18,6 @@ import ir.hrka.composenavigation.core.utilities.Graphs.PrimaryGraph
 import ir.hrka.composenavigation.core.utilities.Graphs.SecondaryGraph
 import ir.hrka.composenavigation.core.utilities.MainScreens.Splash
 import ir.hrka.composenavigation.core.utilities.MainScreens.SignIn
-import ir.hrka.composenavigation.core.utilities.MainScreens.Main
 import ir.hrka.composenavigation.core.utilities.MainScreens.Status
 import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Home
 import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Search
@@ -29,7 +28,6 @@ import ir.hrka.composenavigation.core.utilities.SecondaryScreens.Profile
 import ir.hrka.composenavigation.core.utilities.SecondaryScreens.Contact
 import ir.hrka.composenavigation.core.utilities.SecondaryScreens.EULA
 import ir.hrka.composenavigation.core.utilities.SecondaryScreens.PrivacyPolicy
-import ir.hrka.composenavigation.screens.main_graph.main.MainScreen
 import ir.hrka.composenavigation.screens.main_graph.signin.SignInScreen
 import ir.hrka.composenavigation.screens.main_graph.splash.SplashScreen
 import ir.hrka.composenavigation.screens.main_graph.status.StatusScreen
@@ -81,10 +79,12 @@ fun AppContent(modifier: Modifier = Modifier) {
                     }
                     composable(
                         route = SignIn.destination
-                    ) { SignInScreen() }
-                    composable(
-                        route = Main.destination
-                    ) { MainScreen() }
+                    ) {
+                        SignInScreen(
+                            navController = navController,
+                            snackBarHostState = snackBarHostState
+                        )
+                    }
                     composable(
                         route = Status.destination
                     ) { StatusScreen() }

@@ -24,9 +24,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import ir.hrka.composenavigation.R
 import ir.hrka.composenavigation.core.Constants.TAG
+import ir.hrka.composenavigation.core.utilities.Graphs.PrimaryGraph
 import ir.hrka.composenavigation.core.utilities.MainScreens.Splash
 import ir.hrka.composenavigation.core.utilities.MainScreens.SignIn
-import ir.hrka.composenavigation.core.utilities.MainScreens.Main
 import kotlinx.coroutines.delay
 
 @Composable
@@ -42,7 +42,7 @@ fun SplashScreen(
 
     LaunchedEffect(signInState) {
         delay(2000)
-        navController.navigate(if (signInState == true) Main.destination else SignIn.destination) {
+        navController.navigate(if (signInState == true) PrimaryGraph.destination else SignIn.destination) {
             popUpTo(Splash.destination) { inclusive = true }
         }
     }

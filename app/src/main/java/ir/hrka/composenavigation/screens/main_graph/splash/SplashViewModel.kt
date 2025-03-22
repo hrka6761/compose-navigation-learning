@@ -4,7 +4,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.hrka.composenavigation.core.BaseViewModel
-import ir.hrka.composenavigation.core.Constants.LOGIN_STATE_PREFERENCE
+import ir.hrka.composenavigation.core.Constants.LOGIN_STATE_PREFERENCE_KEY
 import ir.hrka.composenavigation.core.utilities.DataStoreManager
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -17,6 +17,6 @@ class SplashViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val signInState: StateFlow<Boolean?> = dataStoreManager
-        .readData(booleanPreferencesKey(LOGIN_STATE_PREFERENCE))
+        .readData(booleanPreferencesKey(LOGIN_STATE_PREFERENCE_KEY))
         .stateIn(viewModelScope, SharingStarted.Lazily, false)
 }
