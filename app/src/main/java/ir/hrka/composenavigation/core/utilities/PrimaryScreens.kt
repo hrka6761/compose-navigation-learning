@@ -1,10 +1,10 @@
 package ir.hrka.composenavigation.core.utilities
 
-enum class PrimaryScreens(override val destination: String): Route {
+sealed class PrimaryScreens(override val destination: String) : Route {
 
-    Home("home_screen"),
-    Search("search_screen"),
-    Favorites("favorites_screen"),
-    Settings("settings_screen"),
-    More("more_screen")
+    object Home : PrimaryScreens("home_screen")
+    object Search : PrimaryScreens("search_screen")
+    object Favorites : PrimaryScreens("favorites_screen")
+    object Settings : PrimaryScreens("settings_screen")
+    object More : PrimaryScreens("more_screen")
 }

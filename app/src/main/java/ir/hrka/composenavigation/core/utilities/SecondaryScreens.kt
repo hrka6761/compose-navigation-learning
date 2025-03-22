@@ -1,9 +1,9 @@
 package ir.hrka.composenavigation.core.utilities
 
-enum class SecondaryScreens(override val destination: String): Route {
+sealed class SecondaryScreens(override val destination: String) : Route {
 
-    Profile("profile_screen"),
-    Contact("contact_screen"),
-    EULA("EULA_screen"),
-    PrivacyPolicy("privacy_policy_screen")
+    object Profile : SecondaryScreens("profile_screen")
+    object Contact : SecondaryScreens("contact_screen")
+    object EULA : SecondaryScreens("EULA_screen")
+    object PrivacyPolicy : SecondaryScreens("privacy_policy_screen")
 }

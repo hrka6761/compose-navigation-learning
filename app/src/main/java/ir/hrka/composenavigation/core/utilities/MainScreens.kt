@@ -1,8 +1,8 @@
 package ir.hrka.composenavigation.core.utilities
 
-enum class MainScreens(override val destination: String): Route {
+sealed class MainScreens(override val destination: String) : Route {
 
-    Splash("splash_screen"),
-    SignIn("sign_in_screen"),
-    Status("status_screen")
+    object Splash : MainScreens("splash_screen")
+    object SignIn : MainScreens("sign_in_screen")
+    object Status : MainScreens("status_screen")
 }
