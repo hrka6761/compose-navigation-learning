@@ -79,7 +79,7 @@ fun SignInScreenUI(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
-            enabled = nameField.isNotEmpty(),
+            enabled = nameField.isNotEmpty() && isUIEnable,
             onClick = {
                 isUIEnable = false
                 viewModel.signIn(nameField)
