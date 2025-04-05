@@ -12,45 +12,22 @@ import androidx.compose.ui.graphics.Color
 sealed class PrimaryScreens(override val destination: String) : Route, Components {
 
     object Home : PrimaryScreens("home_screen") {
-        override val topBarTitle: String
-            get() = "Home"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                titleContentColor = Color.Red
-            )
+        override val topBarTitle: String = "Home"
     }
 
     object Search : PrimaryScreens("search_screen") {
-        override val topBarTitle: String
-            get() = "Search"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors()
+        override val topBarTitle: String = "Search"
     }
 
     object Favorites : PrimaryScreens("favorites_screen") {
-        override val topBarTitle: String
-            get() = "Favorites"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors()
+        override val topBarTitle: String = "Favorites"
     }
 
     object Settings : PrimaryScreens("settings_screen") {
-        override val topBarTitle: String
-            get() = "Settings"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors()
+        override val topBarTitle: String = "Settings"
     }
 
     object More : PrimaryScreens("more_screen") {
-        override val topBarTitle: String
-            get() = "More"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors()
+        override val topBarTitle: String = "More"
     }
 }

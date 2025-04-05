@@ -9,34 +9,18 @@ import androidx.compose.runtime.Composable
 sealed class SecondaryScreens(override val destination: String) : Route, Components {
 
     object Profile : SecondaryScreens("profile_screen") {
-        override val topBarTitle: String
-            get() = "Profile"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors()
+        override val topBarTitle: String = "Profile"
     }
 
     object Contact : SecondaryScreens("contact_screen") {
-        override val topBarTitle: String
-            get() = "Contact"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors()
+        override val topBarTitle: String = "Contact"
     }
 
     object EULA : SecondaryScreens("EULA_screen") {
-        override val topBarTitle: String
-            get() = "EULA"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors()
+        override val topBarTitle: String = "EULA"
     }
 
     object PrivacyPolicy : SecondaryScreens("privacy_policy_screen") {
-        override val topBarTitle: String
-            get() = "Privacy Policy"
-        override val topAppBarColors: TopAppBarColors
-            @Composable
-            get() = TopAppBarDefaults.topAppBarColors()
+        override val topBarTitle: String = "Privacy Policy"
     }
 }

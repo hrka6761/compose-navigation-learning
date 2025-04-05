@@ -1,6 +1,5 @@
 package ir.hrka.composenavigation
 
-import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -10,6 +9,8 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -20,7 +21,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
-import ir.hrka.composenavigation.core.Constants.TAG
 import ir.hrka.composenavigation.core.utilities.Graphs.MainGraph
 import ir.hrka.composenavigation.core.utilities.Graphs.PrimaryGraph
 import ir.hrka.composenavigation.core.utilities.Graphs.SecondaryGraph
@@ -160,33 +160,52 @@ fun TopBar(
     val currentGraph = navBackStackEntry?.destination?.parent?.route
     val currentDestination = navBackStackEntry?.destination?.route
 
+    var barTitle: String? = null
+    var barColors: TopAppBarColors? = null
+
+    when(currentDestination) {
+        Home.destination -> {
+            barTitle = Home.topBarTitle
+            barColors = Home.topAppBarColors
+        }
+        Search.destination -> {
+            barTitle = Search.topBarTitle
+            barColors = Search.topAppBarColors
+        }
+        Favorites.destination -> {
+            barTitle = Favorites.topBarTitle
+            barColors = Favorites.topAppBarColors
+        }
+        Settings.destination -> {
+            barTitle = Settings.topBarTitle
+            barColors = Settings.topAppBarColors
+        }
+        More.destination -> {
+            barTitle = More.topBarTitle
+            barColors = More.topAppBarColors
+        }
+        Profile.destination -> {
+            barTitle = Profile.topBarTitle
+            barColors = Profile.topAppBarColors
+        }
+        Contact.destination -> {
+            barTitle = Contact.topBarTitle
+            barColors = Contact.topAppBarColors
+        }
+        EULA.destination -> {
+            barTitle = EULA.topBarTitle
+            barColors = EULA.topAppBarColors
+        }
+        PrivacyPolicy.destination -> {
+            barTitle = PrivacyPolicy.topBarTitle
+            barColors = PrivacyPolicy.topAppBarColors
+        }
+    }
+
     if (currentGraph != MainGraph.destination)
         TopAppBar(
-            title = {
-                when(currentDestination) {
-                    Home.destination -> Text(Home.topBarTitle)
-                    Search.destination -> Text(Search.topBarTitle)
-                    Favorites.destination -> Text(Favorites.topBarTitle)
-                    Settings.destination -> Text(Settings.topBarTitle)
-                    More.destination -> Text(More.topBarTitle)
-                    Profile.destination -> Text(Profile.topBarTitle)
-                    Contact.destination -> Text(Contact.topBarTitle)
-                    EULA.destination -> Text(EULA.topBarTitle)
-                    PrivacyPolicy.destination -> Text(PrivacyPolicy.topBarTitle)
-                }
-            },
-            colors = when(currentDestination) {
-                Home.destination -> Home.topAppBarColors
-                Search.destination -> Home.topAppBarColors
-                Favorites.destination -> Home.topAppBarColors
-                Settings.destination -> Home.topAppBarColors
-                More.destination -> Home.topAppBarColors
-                Profile.destination -> Home.topAppBarColors
-                Contact.destination -> Home.topAppBarColors
-                EULA.destination -> Home.topAppBarColors
-                PrivacyPolicy.destination -> Home.topAppBarColors
-                else -> Home.topAppBarColors
-            }
+            title = { Text(text = barTitle ?: "") },
+            colors = barColors ?: TopAppBarDefaults.topAppBarColors()
         )
 }
 
