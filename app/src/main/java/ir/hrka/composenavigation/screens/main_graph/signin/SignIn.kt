@@ -59,6 +59,7 @@ fun SignInScreenUI(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Log.i(TAG, "SignInScreen composition")
         var isUIEnable by remember { mutableStateOf(true) }
         var nameField by remember { mutableStateOf("") }
         val signInResult by viewModel.signInResult.collectAsState()

@@ -9,6 +9,6 @@ open class BaseViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
 
-        Log.i(TAG, "onCleared ${this.javaClass.simpleName}")
+        Log.i(TAG, "------>>>>>> onCleared ${this.javaClass.simpleName} <<<<<<------")
     }
 }

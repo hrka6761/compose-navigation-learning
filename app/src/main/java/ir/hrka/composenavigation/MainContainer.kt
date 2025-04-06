@@ -4,6 +4,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -15,7 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -24,18 +27,19 @@ import androidx.navigation.compose.rememberNavController
 import ir.hrka.composenavigation.core.utilities.Graphs.MainGraph
 import ir.hrka.composenavigation.core.utilities.Graphs.PrimaryGraph
 import ir.hrka.composenavigation.core.utilities.Graphs.SecondaryGraph
-import ir.hrka.composenavigation.core.utilities.MainScreens.Splash
 import ir.hrka.composenavigation.core.utilities.MainScreens.SignIn
+import ir.hrka.composenavigation.core.utilities.MainScreens.Splash
 import ir.hrka.composenavigation.core.utilities.MainScreens.Status
-import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Home
-import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Search
 import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Favorites
-import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Settings
+import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Home
 import ir.hrka.composenavigation.core.utilities.PrimaryScreens.More
-import ir.hrka.composenavigation.core.utilities.SecondaryScreens.Profile
+import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Search
+import ir.hrka.composenavigation.core.utilities.PrimaryScreens.Settings
 import ir.hrka.composenavigation.core.utilities.SecondaryScreens.Contact
 import ir.hrka.composenavigation.core.utilities.SecondaryScreens.EULA
 import ir.hrka.composenavigation.core.utilities.SecondaryScreens.PrivacyPolicy
+import ir.hrka.composenavigation.core.utilities.SecondaryScreens.Profile
+import ir.hrka.composenavigation.core.utilities.bottomNavigationItems
 import ir.hrka.composenavigation.screens.main_graph.signin.SignInScreen
 import ir.hrka.composenavigation.screens.main_graph.splash.SplashScreen
 import ir.hrka.composenavigation.screens.main_graph.status.StatusScreen
@@ -56,17 +60,23 @@ fun AppContent(modifier: Modifier = Modifier) {
         val navController = rememberNavController()
         val snackBarHostState = remember { SnackbarHostState() }
         val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentGraph = navBackStackEntry?.destination?.parent?.route
+        val currentDestination = navBackStackEntry?.destination?.route
 
         Scaffold(
             topBar = {
                 TopBar(
                     modifier = modifier,
-                    navBackStackEntry = navBackStackEntry
+                    currentGraph = currentGraph,
+                    currentDestination = currentDestination
                 )
             },
             bottomBar = {
                 BottomBar(
-                    modifier = modifier
+                    modifier = modifier,
+                    currentGraph = currentGraph,
+                    currentDestination = currentDestination,
+                    navController = navController
                 )
             },
             snackbarHost = {
@@ -155,61 +165,90 @@ fun AppContent(modifier: Modifier = Modifier) {
 @Composable
 fun TopBar(
     modifier: Modifier,
-    navBackStackEntry: NavBackStackEntry?
+    currentGraph: String?,
+    currentDestination: String?,
 ) {
-    val currentGraph = navBackStackEntry?.destination?.parent?.route
-    val currentDestination = navBackStackEntry?.destination?.route
+    if (currentGraph != MainGraph.destination) {
+        var barTitle: String? = null
+        var barColors: TopAppBarColors? = null
 
-    var barTitle: String? = null
-    var barColors: TopAppBarColors? = null
+        when (currentDestination) {
+            Home.destination -> {
+                barTitle = Home.topBarTitle
+                barColors = Home.topAppBarColors
+            }
 
-    when(currentDestination) {
-        Home.destination -> {
-            barTitle = Home.topBarTitle
-            barColors = Home.topAppBarColors
-        }
-        Search.destination -> {
-            barTitle = Search.topBarTitle
-            barColors = Search.topAppBarColors
-        }
-        Favorites.destination -> {
-            barTitle = Favorites.topBarTitle
-            barColors = Favorites.topAppBarColors
-        }
-        Settings.destination -> {
-            barTitle = Settings.topBarTitle
-            barColors = Settings.topAppBarColors
-        }
-        More.destination -> {
-            barTitle = More.topBarTitle
-            barColors = More.topAppBarColors
-        }
-        Profile.destination -> {
-            barTitle = Profile.topBarTitle
-            barColors = Profile.topAppBarColors
-        }
-        Contact.destination -> {
-            barTitle = Contact.topBarTitle
-            barColors = Contact.topAppBarColors
-        }
-        EULA.destination -> {
-            barTitle = EULA.topBarTitle
-            barColors = EULA.topAppBarColors
-        }
-        PrivacyPolicy.destination -> {
-            barTitle = PrivacyPolicy.topBarTitle
-            barColors = PrivacyPolicy.topAppBarColors
-        }
-    }
+            Search.destination -> {
+                barTitle = Search.topBarTitle
+                barColors = Search.topAppBarColors
+            }
 
-    if (currentGraph != MainGraph.destination)
+            Favorites.destination -> {
+                barTitle = Favorites.topBarTitle
+                barColors = Favorites.topAppBarColors
+            }
+
+            Settings.destination -> {
+                barTitle = Settings.topBarTitle
+                barColors = Settings.topAppBarColors
+            }
+
+            More.destination -> {
+                barTitle = More.topBarTitle
+                barColors = More.topAppBarColors
+            }
+
+            Profile.destination -> {
+                barTitle = Profile.topBarTitle
+                barColors = Profile.topAppBarColors
+            }
+
+            Contact.destination -> {
+                barTitle = Contact.topBarTitle
+                barColors = Contact.topAppBarColors
+            }
+
+            EULA.destination -> {
+                barTitle = EULA.topBarTitle
+                barColors = EULA.topAppBarColors
+            }
+
+            PrivacyPolicy.destination -> {
+                barTitle = PrivacyPolicy.topBarTitle
+                barColors = PrivacyPolicy.topAppBarColors
+            }
+        }
+
         TopAppBar(
             title = { Text(text = barTitle ?: "") },
             colors = barColors ?: TopAppBarDefaults.topAppBarColors()
         )
+    }
 }
 
 @Composable
-fun BottomBar(modifier: Modifier) {
-
+fun BottomBar(
+    modifier: Modifier,
+    currentGraph: String?,
+    currentDestination: String?,
+    navController: NavController
+) {
+    if (currentGraph == PrimaryGraph.destination)
+        NavigationBar {
+            bottomNavigationItems.forEach { item ->
+                NavigationBarItem(
+                    selected = item.destination == currentDestination,
+                    onClick = {
+                        if (item.destination != currentDestination)
+                            navController.navigate(item.destination)
+                    },
+                    icon = {
+                        Icon(
+                            imageVector = if (item.destination == currentDestination) item.selectedIcon else item.unSelectedIcon,
+                            contentDescription = item.title
+                        )
+                    }
+                )
+            }
+        }
 }

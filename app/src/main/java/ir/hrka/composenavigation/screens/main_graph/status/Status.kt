@@ -1,5 +1,6 @@
 package ir.hrka.composenavigation.screens.main_graph.status
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,6 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import ir.hrka.composenavigation.core.Constants.TAG
 import ir.hrka.composenavigation.core.utilities.MainScreens.Status
 
 @Composable
@@ -16,6 +19,8 @@ fun StatusScreen(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Log.i(TAG, "StatusScreen composition")
+        val statusViewModel: StatusViewModel = hiltViewModel()
         Text(Status.destination)
     }
 }
