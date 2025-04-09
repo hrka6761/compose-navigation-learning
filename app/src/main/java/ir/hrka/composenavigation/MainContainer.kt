@@ -48,10 +48,10 @@ import ir.hrka.composenavigation.screens.bottom_sheet_graph.home.HomeScreen
 import ir.hrka.composenavigation.screens.bottom_sheet_graph.more.MoreScreen
 import ir.hrka.composenavigation.screens.bottom_sheet_graph.search.SearchScreen
 import ir.hrka.composenavigation.screens.bottom_sheet_graph.settings.SettingsScreen
-import ir.hrka.composenavigation.screens.secondary_graph.contact.ContactScreen
-import ir.hrka.composenavigation.screens.secondary_graph.eula.EULAScreen
-import ir.hrka.composenavigation.screens.secondary_graph.privacy_policy.PrivacyPolicyScreen
-import ir.hrka.composenavigation.screens.secondary_graph.profile.ProfileScreen
+import ir.hrka.composenavigation.screens.settings_graph.contact.ContactScreen
+import ir.hrka.composenavigation.screens.settings_graph.eula.EULAScreen
+import ir.hrka.composenavigation.screens.settings_graph.privacy_policy.PrivacyPolicyScreen
+import ir.hrka.composenavigation.screens.settings_graph.profile.ProfileScreen
 import ir.hrka.composenavigation.ui.theme.ComposeNavigationTheme
 
 @Composable

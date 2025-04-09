@@ -1,4 +1,4 @@
-package ir.hrka.composenavigation.screens.secondary_graph.contact
+package ir.hrka.composenavigation.screens.settings_graph.contact
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement

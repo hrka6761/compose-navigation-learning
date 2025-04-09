@@ -1,4 +1,4 @@
-package ir.hrka.composenavigation.screens.secondary_graph.profile
+package ir.hrka.composenavigation.screens.settings_graph.privacy_policy
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
@@ -9,16 +9,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import ir.hrka.composenavigation.core.Constants.TAG
-import ir.hrka.composenavigation.core.utilities.SecondaryScreens.Profile
+import ir.hrka.composenavigation.core.utilities.SecondaryScreens.PrivacyPolicy
 
 @Composable
-fun ProfileScreen(modifier: Modifier = Modifier) {
+fun PrivacyPolicyScreen(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Log.i(TAG, "ProfileScreen composition")
-        Text(Profile.destination)
+        Log.i(TAG, "PrivacyPolicyScreen composition")
+        Text(PrivacyPolicy.destination)
     }
 }

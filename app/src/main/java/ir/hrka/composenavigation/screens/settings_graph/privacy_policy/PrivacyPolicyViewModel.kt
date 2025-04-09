@@ -1,8 +1,8 @@
-package ir.hrka.composenavigation.screens.secondary_graph.profile
+package ir.hrka.composenavigation.screens.settings_graph.privacy_policy
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.hrka.composenavigation.core.BaseViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor() : BaseViewModel()
+class PrivacyPolicyViewModel @Inject constructor() : BaseViewModel()
