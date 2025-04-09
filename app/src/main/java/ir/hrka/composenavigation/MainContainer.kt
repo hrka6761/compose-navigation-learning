@@ -51,7 +51,7 @@ import ir.hrka.composenavigation.screens.bottom_sheet_graph.settings.SettingsScr
 import ir.hrka.composenavigation.screens.settings_graph.contact.ContactScreen
 import ir.hrka.composenavigation.screens.settings_graph.eula.EULAScreen
 import ir.hrka.composenavigation.screens.settings_graph.privacy_policy.PrivacyPolicyScreen
-import ir.hrka.composenavigation.screens.settings_graph.profile.ProfileScreen
+import ir.hrka.composenavigation.screens.main_graph.profile.ProfileScreen
 import ir.hrka.composenavigation.ui.theme.ComposeNavigationTheme
 
 @Composable

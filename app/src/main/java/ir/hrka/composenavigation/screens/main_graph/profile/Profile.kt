@@ -1,4 +1,4 @@
-package ir.hrka.composenavigation.screens.settings_graph.profile
+package ir.hrka.composenavigation.screens.main_graph.profile
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
