@@ -1,4 +1,4 @@
-package ir.hrka.composenavigation.screens.primary_graph.settings
+package ir.hrka.composenavigation.screens.bottom_sheet_graph.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.hrka.composenavigation.core.BaseViewModel

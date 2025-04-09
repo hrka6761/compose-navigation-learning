@@ -1,4 +1,4 @@
-package ir.hrka.composenavigation.screens.primary_graph.more
+package ir.hrka.composenavigation.screens.bottom_sheet_graph.more
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement

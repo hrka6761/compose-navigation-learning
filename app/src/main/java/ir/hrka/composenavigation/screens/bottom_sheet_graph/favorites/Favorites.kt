@@ -1,4 +1,4 @@
-package ir.hrka.composenavigation.screens.primary_graph.favorites
+package ir.hrka.composenavigation.screens.bottom_sheet_graph.favorites
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement

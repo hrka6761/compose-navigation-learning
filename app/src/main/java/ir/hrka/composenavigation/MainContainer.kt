@@ -43,11 +43,11 @@ import ir.hrka.composenavigation.core.utilities.bottomNavigationItems
 import ir.hrka.composenavigation.screens.main_graph.signin.SignInScreen
 import ir.hrka.composenavigation.screens.main_graph.splash.SplashScreen
 import ir.hrka.composenavigation.screens.main_graph.status.StatusScreen
-import ir.hrka.composenavigation.screens.primary_graph.favorites.FavoritesScreen
-import ir.hrka.composenavigation.screens.primary_graph.home.HomeScreen
-import ir.hrka.composenavigation.screens.primary_graph.more.MoreScreen
-import ir.hrka.composenavigation.screens.primary_graph.search.SearchScreen
-import ir.hrka.composenavigation.screens.primary_graph.settings.SettingsScreen
+import ir.hrka.composenavigation.screens.bottom_sheet_graph.favorites.FavoritesScreen
+import ir.hrka.composenavigation.screens.bottom_sheet_graph.home.HomeScreen
+import ir.hrka.composenavigation.screens.bottom_sheet_graph.more.MoreScreen
+import ir.hrka.composenavigation.screens.bottom_sheet_graph.search.SearchScreen
+import ir.hrka.composenavigation.screens.bottom_sheet_graph.settings.SettingsScreen
 import ir.hrka.composenavigation.screens.secondary_graph.contact.ContactScreen
 import ir.hrka.composenavigation.screens.secondary_graph.eula.EULAScreen
 import ir.hrka.composenavigation.screens.secondary_graph.privacy_policy.PrivacyPolicyScreen
